@@ -2,6 +2,7 @@ package HomeWork2;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -16,7 +17,8 @@ class AccountTest {
     void put() {
         testObject.put(BigDecimal.valueOf(10));
         Assertions.assertEquals(BigDecimal.valueOf(20.01), testObject.getAmount());
-//        Assertions.assertThrows(IllegalArgumentException.class, testObject.put(BigDecimal.valueOf(-20)));
+//        Executable executable = () -> testObject.put(BigDecimal.valueOf(-20));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> testObject.put(BigDecimal.valueOf(-20)));
     }
 
     @Test
